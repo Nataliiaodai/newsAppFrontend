@@ -1,0 +1,9 @@
+<form [formGroup]="newsForm" (ngSubmit)="onSubmit()">
+  <label for="title">Title:</label>
+  <input id="title" formControlName="title">
+
+  <label for="content">Content:</label>
+  <textarea id="content" formControlName="content"></textarea>
+
+  <button type="submit">{{ isEditMode ? 'Update' : 'Create' }} News</button>
+</form>
