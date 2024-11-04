@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { News } from "../models/news.model";
+import { NewsDTO } from "../models/news.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -17,15 +18,15 @@ export class NewsService {
     return this.http.get<News[]>(url);
   }
 
-  getNewsById(id: number | string): Observable<News> {
-    return this.http.get<News>(`${this.apiUrl}/${id}`);
+  getNewsById(id: number | string): Observable<NewsDTO> {
+    return this.http.get<NewsDTO>(`${this.apiUrl}/${id}`);
   }
 
-  createNews(news: News): Observable<News> {
-    return this.http.post<News>(this.apiUrl, news);
+  createNews(news: NewsDTO): Observable<News> {
+    return this.http.post<NewsDTO>(this.apiUrl, news);
   }
 
-  updateNews(newsData: News, id: number | string): Observable<News> {
+  updateNews(newsData: NewsDTO, id: number | string): Observable<News> {
     return this.http.put<News>(`${this.apiUrl}/${id}`, newsData);
   }
 

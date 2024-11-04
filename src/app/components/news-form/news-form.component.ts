@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewsService } from '../../services/news.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { News } from '../../models/news.model';
+import { NewsDTO } from "../../models/news.dto";
 
 @Component({
   selector: 'app-news-form',
@@ -11,7 +11,7 @@ import { News } from '../../models/news.model';
 })
 export class NewsFormComponent implements OnInit {
   newsForm: FormGroup;
-  news: News = new News();
+  news: NewsDTO | null = null;
   isEditMode = false;
 
   constructor(
