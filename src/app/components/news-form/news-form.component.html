@@ -1,9 +1,12 @@
-<form [formGroup]="newsForm" (ngSubmit)="onSubmit()">
-  <label for="title">Title:</label>
-  <input id="title" formControlName="title">
+<form class="news-form" [formGroup]="newsForm" (ngSubmit)="onSubmit()">
+    <label class="news-form__label" for="title">Title:</label>
+    <input class="news-form__input" id="title" formControlName="title"/>
 
-  <label for="content">Content:</label>
-  <textarea id="content" formControlName="content"></textarea>
+    <label class="news-form__label" for="content">Content:</label>
+    <textarea class="news-form__textarea" id="content" formControlName="content"></textarea>
 
-  <button type="submit">{{ isEditMode ? 'Update' : 'Create' }} News</button>
+    <button class="news-form__button news-form__button--submit" type="submit">
+        {{ isEditMode ? 'Update' : 'Create' }} News
+    </button>
 </form>
+

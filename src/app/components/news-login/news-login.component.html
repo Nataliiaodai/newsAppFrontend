@@ -1,21 +1,61 @@
-<div class="container">
-  <h2>Login</h2>
-  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-    <label for="email">Email</label>
-    <input id="email" formControlName="email" type="email" required autocomplete="email"/>
-    <div
-      *ngIf="loginForm?.get('email')?.invalid && (loginForm?.get('email')?.touched || loginForm?.get('email')?.dirty)">
-      <small *ngIf="loginForm?.get('email')?.errors?.['required']">Email is required.</small>
-      <small *ngIf="loginForm?.get('email')?.errors?.['email']">Invalid email format.</small>
-    </div>
+<!--<div class="container">-->
+<!--  <h2>Login</h2>-->
+<!--  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">-->
+<!--    <label for="email">Email</label>-->
+<!--    <input id="email" formControlName="email" type="email" required autocomplete="email"/>-->
+<!--    <div-->
+<!--      *ngIf="loginForm?.get('email')?.invalid && (loginForm?.get('email')?.touched || loginForm?.get('email')?.dirty)">-->
+<!--      <small *ngIf="loginForm?.get('email')?.errors?.['required']">Email is required.</small>-->
+<!--      <small *ngIf="loginForm?.get('email')?.errors?.['email']">Invalid email format.</small>-->
+<!--    </div>-->
 
-    <label for="password">Password</label>
-    <input id="password" formControlName="password" type="password" required autocomplete="current-password"/>
-    <div
-      *ngIf="loginForm?.get('password')?.invalid && (loginForm?.get('password')?.touched || loginForm?.get('password')?.dirty)">
-      <small *ngIf="loginForm?.get('password')?.errors?.['required']">Password is required.</small>
-    </div>
+<!--    <label for="password">Password</label>-->
+<!--    <input id="password" formControlName="password" type="password" required autocomplete="current-password"/>-->
+<!--    <div-->
+<!--      *ngIf="loginForm?.get('password')?.invalid && (loginForm?.get('password')?.touched || loginForm?.get('password')?.dirty)">-->
+<!--      <small *ngIf="loginForm?.get('password')?.errors?.['required']">Password is required.</small>-->
+<!--    </div>-->
 
-    <button type="submit" [disabled]="loginForm.invalid">Login</button>
-  </form>
+<!--    <button type="submit" [disabled]="loginForm.invalid">Login</button>-->
+<!--  </form>-->
+<!--</div>-->
+
+<div class="login">
+    <h2 class="login__title">Login</h2>
+    <form class="login__form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <label class="login__label" for="email">Email</label>
+        <input
+                id="email"
+                formControlName="email"
+                type="email"
+                required
+                autocomplete="email"
+                class="login__input"
+        />
+        <div
+                class="login__error"
+                *ngIf="loginForm?.get('email')?.invalid && (loginForm?.get('email')?.touched || loginForm?.get('email')?.dirty)"
+        >
+            <small *ngIf="loginForm?.get('email')?.errors?.['required']">Email is required.</small>
+            <small *ngIf="loginForm?.get('email')?.errors?.['email']">Invalid email format.</small>
+        </div>
+
+        <label class="login__label" for="password">Password</label>
+        <input
+                id="password"
+                formControlName="password"
+                type="password"
+                required
+                autocomplete="current-password"
+                class="login__input"
+        />
+        <div
+                class="login__error"
+                *ngIf="loginForm?.get('password')?.invalid && (loginForm?.get('password')?.touched || loginForm?.get('password')?.dirty)"
+        >
+            <small *ngIf="loginForm?.get('password')?.errors?.['required']">Password is required.</small>
+        </div>
+
+        <button type="submit" [disabled]="loginForm.invalid" class="login__button">Login</button>
+    </form>
 </div>

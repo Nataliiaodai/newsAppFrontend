@@ -1,8 +1,12 @@
 <div class="news-detail" *ngIf="news">
-  <h2>{{ news.title }}</h2>
-  <p>{{ news.content }}</p>
-  <button [routerLink]="['/news-edit', news.id]">Edit</button>
-  <button (click)="deleteNews()">Delete</button>
+    <h2 class="news-detail__title">{{ news.title }}</h2>
+    <p class="news-detail__content">{{ news.content }}</p>
+    <div class="news-detail__actions">
+        <button class="news-detail__button news-detail__button--edit" [routerLink]="['/news-edit', news.id]">Edit
+        </button>
+        <button class="news-detail__button news-detail__button--delete" (click)="deleteNews()">Delete</button>
+    </div>
 </div>
+
 
 

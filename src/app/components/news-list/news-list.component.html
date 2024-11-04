@@ -1,17 +1,18 @@
 <div class="news-list">
-  <h2>News Articles</h2>
-  <div class="news-list-block">
-    <button routerLink="/news-create">Create News</button>
-    <input
-      type="text"
-      placeholder="Filter by name"
-      [(ngModel)]="filterName"
-      (ngModelChange)="onFilterChange()"
-    />
-    <ul>
-      <li *ngFor="let news of newsList">
-        <a [routerLink]="['/news', news.id]">{{ news.title }}</a>
-      </li>
+    <h2 class="news-list__title">News Articles</h2>
+    <div class="news-list__controls">
+        <button class="news-list__button news-list__button--create" routerLink="/news-create">Create News</button>
+        <input
+                class="news-list__filter"
+                type="text"
+                placeholder="Filter by name"
+                [(ngModel)]="filterName"
+                (ngModelChange)="onFilterChange()"
+        />
+    </div>
+    <ul class="news-list__items">
+        <li class="news-list__item" *ngFor="let news of newsList">
+            <a class="news-list__link" [routerLink]="['/news', news.id]">{{ news.title }}</a>
+        </li>
     </ul>
-  </div>
 </div>
